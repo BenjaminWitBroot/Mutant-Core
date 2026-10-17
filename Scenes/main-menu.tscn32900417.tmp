@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://cnyy535rmpioo"]
+
+[ext_resource type="Script" uid="uid://38s3dlwmc6i1" path="res://Scenes/main_menu.gd" id="1_j5ll4"]
+[ext_resource type="Texture2D" uid="uid://4na4c6owitg2" path="res://Assets/tital screen consept 2.jpg" id="2_mvc4y"]
+[ext_resource type="Script" uid="uid://dju8fwdaxhsvr" path="res://Scenes/start.gd" id="3_mvc4y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvk52"]
+texture = ExtResource("2_mvc4y")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4thvv"]
+bg_color = Color(1.1291975, 1.1291975, 1.1291975, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="MainMenu" type="Control" unique_id=2037548754]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j5ll4")
+
+[node name="Panel" type="Panel" parent="." unique_id=108451155]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gvk52")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1232453905]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -203.0
+offset_right = 257.0
+grow_vertical = 0
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=691303760]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 47
+theme_override_styles/normal = SubResource("StyleBoxFlat_4thvv")
+text = "Start Game 
+"
+script = ExtResource("3_mvc4y")
+
+[node name="options" type="Button" parent="VBoxContainer" unique_id=2074136114]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 47
+theme_override_styles/normal = SubResource("StyleBoxFlat_4thvv")
+text = "Options
+"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=2071189657]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 47
+theme_override_styles/normal = SubResource("StyleBoxFlat_4thvv")
+text = "Exit
+
+"
+
+[node name="Label" type="Label" parent="." unique_id=1063760920]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 55.0
+offset_top = -319.0
+offset_right = 587.0
+offset_bottom = -159.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "Menue test 1 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

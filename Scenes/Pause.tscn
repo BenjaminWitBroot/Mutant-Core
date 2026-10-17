@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://drcoy4sxbs2a0"]
+
+[ext_resource type="Script" uid="uid://dafywun4tpkvg" path="res://Scenes/pause.gd" id="1_p8av3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwket"]
+bg_color = Color(0.50140655, 0.5014065, 0.5014065, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8av3"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Control" type="Control" unique_id=274166067]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p8av3")
+
+[node name="Resume" type="Button" parent="." unique_id=1587990982]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 233.0
+offset_right = 597.0
+offset_bottom = 296.0
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_qwket")
+text = "Resume"
+
+[node name="Exit" type="Button" parent="." unique_id=581339035]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 296.0
+offset_right = 507.0
+offset_bottom = 361.0
+scale = Vector2(2.106205, 1.0403588)
+theme_override_font_sizes/font_size = 47
+theme_override_styles/normal = SubResource("StyleBoxFlat_p8av3")
+text = "Exit"
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

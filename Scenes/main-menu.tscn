@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://cnyy535rmpioo"]
+
+[ext_resource type="Script" uid="uid://38s3dlwmc6i1" path="res://Scenes/main_menu.gd" id="1_j5ll4"]
+[ext_resource type="Texture2D" uid="uid://dei0db7phclyv" path="res://Assets/head-Photoroom.png" id="2_4hgao"]
+[ext_resource type="FontFile" uid="uid://0rqy7ywmymdb" path="res://Assets/Sharpshooter.ttf" id="3_c3dvt"]
+[ext_resource type="Texture2D" uid="uid://kyaoqbtwk1dh" path="res://Assets/left arm-Photoroom.png" id="3_h0e6e"]
+[ext_resource type="Script" uid="uid://dju8fwdaxhsvr" path="res://Scenes/start.gd" id="3_mvc4y"]
+[ext_resource type="Texture2D" uid="uid://dwk6o4tso2xbd" path="res://Assets/body-Photoroom.png" id="4_4vbwm"]
+[ext_resource type="Texture2D" uid="uid://ckq5o0guitt81" path="res://Assets/right arm -Photoroom.png" id="5_0xsg7"]
+
+[sub_resource type="Animation" id="Animation_4hgao"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(508, 388)]
+}
+
+[sub_resource type="Animation" id="Animation_se2kc"]
+resource_name = "left a"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(508, 388), Vector2(508, 388)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivk0r"]
+_data = {
+&"RESET": SubResource("Animation_4hgao"),
+&"left a": SubResource("Animation_se2kc")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4thvv"]
+bg_color = Color(1.1291975, 1.1291975, 1.1291975, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="MainMenu" type="Control" unique_id=2037548754]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j5ll4")
+
+[node name="Panel" type="Panel" parent="." unique_id=276648278]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=450318790]
+position = Vector2(508, 388)
+scale = Vector2(0.38860193, 0.32136187)
+texture = ExtResource("2_4hgao")
+
+[node name="left A" type="Sprite2D" parent="Sprite2D" unique_id=1433250636]
+position = Vector2(1.9073486e-05, -34.229366)
+rotation = 0.083086014
+texture = ExtResource("3_h0e6e")
+
+[node name="Body" type="Sprite2D" parent="Sprite2D" unique_id=1509565422]
+texture = ExtResource("4_4vbwm")
+
+[node name="Right A" type="Sprite2D" parent="Sprite2D/Body" unique_id=1219826226]
+texture = ExtResource("5_0xsg7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=1513948277]
+libraries/ = SubResource("AnimationLibrary_ivk0r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1232453905]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -111.0
+offset_right = 252.0
+offset_bottom = 92.0
+grow_vertical = 0
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=691303760]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_c3dvt")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4thvv")
+text = "Start Game 
+"
+script = ExtResource("3_mvc4y")
+
+[node name="options" type="Button" parent="VBoxContainer" unique_id=2074136114]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_c3dvt")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4thvv")
+text = "Options
+"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=2071189657]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_c3dvt")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4thvv")
+text = "Exit
+
+"
+
+[node name="Label" type="Label" parent="." unique_id=1666224292]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 72.0
+offset_right = 913.0
+offset_bottom = 169.0
+theme_override_fonts/font = ExtResource("3_c3dvt")
+theme_override_font_sizes/font_size = 100
+text = "Mutant Core"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
