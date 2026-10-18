@@ -15,6 +15,10 @@ run/main_scene="uid://cnyy535rmpioo"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://dxku02a06ujeh"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/auto_polygon2d_triangulation/plugin.cfg")
+
 [input]
 
 pause={

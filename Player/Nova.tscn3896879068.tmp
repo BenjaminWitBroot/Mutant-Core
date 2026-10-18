@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://3hf7quyj26lm"]
+
+[ext_resource type="Script" uid="uid://byk1i5el736bi" path="res://Player/Scripts/nova.gd" id="1_qgcw3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mj071"]
+size = Vector2(18, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgcw3"]
+size = Vector2(16, 46)
+
+[node name="Nova" type="CharacterBody2D" unique_id=716686406]
+script = ExtResource("1_qgcw3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1056670362]
+position = Vector2(0, -24)
+texture = SubResource("PlaceholderTexture2D_mj071")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1285126068]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_qgcw3")
