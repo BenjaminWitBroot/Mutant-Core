@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://3hf7quyj26lm"]
+
+[ext_resource type="Script" uid="uid://byk1i5el736bi" path="res://Player/Scripts/nova.gd" id="1_qgcw3"]
+[ext_resource type="Script" uid="uid://cwajwa4cluky" path="res://Player/States/Idle.gd" id="2_jxgtm"]
+[ext_resource type="Script" uid="uid://ddvxrdjc53g3x" path="res://Player/States/Run.gd" id="3_ujuv3"]
+[ext_resource type="Script" uid="uid://byu7ud245um62" path="res://Player/States/Jump.gd" id="4_greet"]
+[ext_resource type="Script" uid="uid://bsffda1u08i0m" path="res://Player/States/Fall.gd" id="5_8mkd7"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mj071"]
+size = Vector2(18, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgcw3"]
+size = Vector2(16, 46)
+
+[node name="Nova" type="CharacterBody2D" unique_id=716686406]
+script = ExtResource("1_qgcw3")
+
+[node name="States" type="Node" parent="." unique_id=1906734061]
+
+[node name="Idle" type="Node" parent="States" unique_id=48756511]
+unique_name_in_owner = true
+script = ExtResource("2_jxgtm")
+
+[node name="Run" type="Node" parent="States" unique_id=1687489407]
+unique_name_in_owner = true
+script = ExtResource("3_ujuv3")
+
+[node name="Jump" type="Node" parent="States" unique_id=465895591]
+unique_name_in_owner = true
+script = ExtResource("4_greet")
+
+[node name="Fall" type="Node" parent="States" unique_id=911920158]
+unique_name_in_owner = true
+script = ExtResource("5_8mkd7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1056670362]
+position = Vector2(0, -24)
+texture = SubResource("PlaceholderTexture2D_mj071")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1285126068]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_qgcw3")
+
+[node name="Label" type="Label" parent="." unique_id=300475449]
+offset_left = -21.0
+offset_top = -69.0
+offset_right = 22.0
+offset_bottom = -46.0
+text = "Idle"
+horizontal_alignment = 1

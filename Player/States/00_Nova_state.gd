@@ -7,6 +7,7 @@ var next_state : PlayerState
 #region /// stare references
 @onready var idle: PlayerStateIdle = %Idle
 @onready var run: PlayerStateRun = %Run
+
 #endregion
 
 
