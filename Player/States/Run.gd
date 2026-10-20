@@ -11,10 +11,12 @@ func _init() -> void:
 
 func enter() -> void: 
 	#play animation
+	print("enter",name)
 	pass
 
 
 func exit () -> void:
+	print("exit",name)
 	pass
 
 

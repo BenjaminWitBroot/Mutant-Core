@@ -1,4 +1,10 @@
-class_name PlayerStateJump extends PlayerState
+class_name PlayerStatejump extends PlayerState
+
+@export var jump_velocity : float = 450
+
+
+
+
 func _init() -> void:
 	
 	pass
@@ -6,8 +12,10 @@ func _init() -> void:
 
 
 
-func enter() -> void: 
+func enter() -> void:
 	#play aimation
+	print("enter",name)
+	player.velocity.y = -jump_velocity
 	pass
 
 
@@ -31,5 +39,8 @@ func process(_delta: float) -> PlayerState:
 
 
 func physics_process(_delta: float) -> PlayerState:
-	player.velocity.x= 0
+	if player. is_on_floor():
+		return idle
+	elif player.velocity.y >= 0:
+		return fall
 	return next_state

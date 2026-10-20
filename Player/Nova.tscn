@@ -4,44 +4,7 @@
 [ext_resource type="Script" uid="uid://cwajwa4cluky" path="res://Player/States/Idle.gd" id="2_jxgtm"]
 [ext_resource type="Script" uid="uid://ddvxrdjc53g3x" path="res://Player/States/Run.gd" id="3_ujuv3"]
 [ext_resource type="Script" uid="uid://7g53hd57m0cr" path="res://Player/States/Jump.gd" id="4_greet"]
-
-[sub_resource type="GDScript" id="GDScript_md1r6"]
-script/source = "class_name PlayerStateFall extends PlayerState
-func _init() -> void:
-	
-	pass
-
-
-
-
-func enter() -> void: 
-	#play aimation
-	pass
-
-
-func exit () -> void:
-	print(\"exit:\",name)
-	pass
-
-
-
-func handled_input (_event : InputEvent) -> PlayerState:
-	#handle input
-	return next_state
-
-
-
-func process(_delta: float) -> PlayerState:
-	if player.direction.x !=0:
-		return run
-
-	return next_state
-
-
-func physics_process(_delta: float) -> PlayerState:
-	player.velocity.x= 0
-	return next_state
-"
+[ext_resource type="Script" uid="uid://24gc2vhuayqj" path="res://Player/States/Fall.gd" id="5_greet"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mj071"]
 size = Vector2(18, 48)
@@ -66,9 +29,9 @@ script = ExtResource("3_ujuv3")
 unique_name_in_owner = true
 script = ExtResource("4_greet")
 
-[node name="Fall" type="Node" parent="States" unique_id=1761748764]
+[node name="Fall" type="Node" parent="States" unique_id=2082390434]
 unique_name_in_owner = true
-script = SubResource("GDScript_md1r6")
+script = ExtResource("5_greet")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1056670362]
 position = Vector2(0, -24)
