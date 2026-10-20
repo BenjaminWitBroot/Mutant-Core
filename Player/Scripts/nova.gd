@@ -24,7 +24,7 @@ func  _ready()-> void:
 	pass
 
 func _unhandled_input(event: InputEvent) -> void:
-	current_state.handled_input(event)
+	change_state(current_state.handled_input(event))
 
 
 func _process(_delta: float) -> void:
